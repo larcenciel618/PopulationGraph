@@ -70,3 +70,24 @@
 	padding-bottom: 2vh;
 	font-size: 18px;
 }
+
+.GetPrefList {
+	font-size: 1.5vmin;
+	margin-right: 5vmin;
+	margin-left: 5vmin;
+}
+
+.PrefboxList {
+	display: inline;
+}
+
+.Singleset {
+	width: 5vw;
+	display: inline-block;
+	padding-right: 10px;
+}
+
+.Prefname {
+	display: inline-block;
+	padding-left: 0.1vw;
+}
