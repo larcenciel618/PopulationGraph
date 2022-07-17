@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,38 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+.App {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  /* background-color:darkgreen; */
+}
+
+.Title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
+	height: 8vmin;
+	background-color:darkslategray;
+}
+
+.Title > p {
+	font-size: 3vmin;
+	letter-spacing: 2vmin;
+	padding-top: 2vmin;
+	height: 6vh;
+	color: beige;
+}
+
+.Explain {
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	font-size: 18px;
 }
