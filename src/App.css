@@ -1,42 +1,3 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 * {
 	padding: 0px;
 	margin: 0px;
@@ -66,9 +27,11 @@
 }
 
 .Explain {
-	padding-top: 2vh;
-	padding-bottom: 2vh;
-	font-size: 18px;
+	padding-top: calc(5vh - 30px);
+	padding-bottom: calc(10vh - 60px);
+	padding-right: 3vh;
+	padding-left: 3vh;
+	font-size: calc(1vmin + 1px);
 }
 
 .GetPrefList {
@@ -84,7 +47,7 @@
 .Singleset {
 	width: calc(8vmin + 30px);
 	display: inline-block;
-	/* padding-right: 1px; */
+	padding-right: 1px;
 }
 
 .Singleset > input {
@@ -94,4 +57,10 @@
 .Prefname {
 	display: inline-block;
 	padding-left: 0.1vw;
+}
+
+.GraphArea {
+	margin-right: 5vmin;
+	margin-left: 5vmin;
+	margin-top: calc(20vmin - 70px);
 }
