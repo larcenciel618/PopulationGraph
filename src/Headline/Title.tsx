@@ -1,13 +1,14 @@
+import React from 'react';
 type Title = {
-	title: string;
-}
+  title: string;
+};
 
 const Title = (props: Title) => {
-	return (
-		<header className="Title">
-			<p className="Titletext">{props.title}</p>
-		</header>
-	)
-}
+  return (
+    <header className="Title">
+      <p className="Titletext">{props.title}</p>
+    </header>
+  );
+};
 
 export default Title;

@@ -1,12 +1,13 @@
-* {
-	padding: 0px;
-	margin: 0px;
-}
 .App {
   height: 100vh;
   width: 100vw;
   text-align: center;
   /* background-color:darkgreen; */
+}
+
+* {
+	padding: 0px;
+	margin: 0px;
 }
 
 .Title {

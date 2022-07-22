@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Headline from './Headline/Headline';
 import Graph from './Graph/Graph';
