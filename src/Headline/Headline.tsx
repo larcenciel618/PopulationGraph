@@ -4,11 +4,11 @@ import "../App.css";
 import Title from "./Title";
 import Explain from "./Explain";
 
-type Headline = {
+type HeadlineType = {
   title: string;
 };
 
-const Headline = (props: Headline) => {
+const Headline = (props: HeadlineType) => {
   return (
     <>
       <Title title={props.title} />

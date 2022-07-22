@@ -1,9 +1,9 @@
 import React from 'react';
-type Title = {
+type TitleType = {
   title: string;
 };
 
-const Title = (props: Title) => {
+const Title = (props: TitleType) => {
   return (
     <header className="Title">
       <p className="Titletext">{props.title}</p>
