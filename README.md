@@ -15,7 +15,6 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 
-https://user-images.githubusercontent.com/62476416/180403861-9c341640-9884-4d09-b1bc-bcfe57315ceb.mov
 
 
 ### `npm test`
@@ -48,3 +47,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+https://user-images.githubusercontent.com/62476416/180404509-c71596f5-6314-4dbf-8920-ecd4c07968e2.mov
+
