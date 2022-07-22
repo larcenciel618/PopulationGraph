@@ -10,48 +10,55 @@ interface PrefValue {
 
 const GetPrefsList = () => {
   const [Prefs, setPrefs] = useState([]);
-  const [Populations, setPopulations] = useState<number[]>([]);
   const [SeriesList, setSeriesList] = useState<Highcharts.SeriesOptionsType[]>(
     []
   );
   const [isDrew, reverseIsDrew] = useState(true);
 
   const handleClick = (index: number, prefname: string) => {
-    //apiでチェックボックスから受け取ったindex番目の都道府県のデータを取得しています。
-    fetch(
-      "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
-        index,
-      {
-        headers: {
-          "x-api-key": "5z07nougGOxYPvf26JK69uVftaVNc00AuZPmbnN9",
-        },
+    //SeriesList内nameを全て検索し、該当する要素があった場合は、isExistedにtrueをたてる
+	let currentSeries: Highcharts.SeriesOptionsType;
+    let isExisted = false;
+    SeriesList.forEach((type: Highcharts.SeriesOptionsType) => {
+      if (type.name === prefname) {
+        isExisted = true;
       }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        const currentValues: number[] = [];
-        //apiで受け取ったデータの人口リストを宣言した配列currentValuesに格納してます
-        Object.keys(data.result.data[0].data).forEach((list: string) => {
-          currentValues.push(data.result.data[0].data[list].value);
-          setPopulations(currentValues);
-        });
-        const currentSeries: Highcharts.SeriesOptionsType = {
-          type: "line",
-          name: prefname,
-          data: currentValues,
-        };
-        //SeriesList内nameを全て検索し、該当する要素があった場合は、isExistedにtrueをたてる
-        let isExisted = false;
-        SeriesList.forEach((type: Highcharts.SeriesOptionsType) => {
-          if (type.name === prefname) {
-            isExisted = true;
-          }
-        });
-        //該当する要素があった(checkbuttonが外れた)場合は現在のSetseriesから該当する要素を抜いたリストを、なかった場合は要素を付け加えたリストをセットする
-        isExisted
-          ? setSeriesList(SeriesList.filter((list) => list.name !== prefname))
-          : setSeriesList([...SeriesList, currentSeries]);
-      });
+    });
+
+    if (!isExisted) {
+      //apiでチェックボックスから受け取ったindex番目の都道府県のデータを取得しています。
+      fetch(
+        "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
+          index,
+        {
+          headers: {
+            "x-api-key": "5z07nougGOxYPvf26JK69uVftaVNc00AuZPmbnN9",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          const currentValues: number[] = [];
+          //apiで受け取ったデータの人口リストを宣言した配列currentValuesに格納してます
+          Object.keys(data.result.data[0].data).forEach((list: string) => {
+            currentValues.push(data.result.data[0].data[list].value);
+          });
+		  console.log(currentValues);
+          currentSeries= {
+            type: "line",
+            name: prefname,
+            data: currentValues,
+          };
+          //該当する要素があった(checkbuttonが外れた)場合は現在のSetseriesから該当する要素を抜いたリストを、なかった場合は要素を付け加えたリストをセットする
+		  setSeriesList([...SeriesList, currentSeries])
+        })
+		.then(() => {
+	  		console.log(SeriesList);
+		})
+    } else {
+      setSeriesList(SeriesList.filter((list) => list.name !== prefname));
+	  console.log(SeriesList);
+    }
   };
 
   if (isDrew === true) {
@@ -63,7 +70,6 @@ const GetPrefsList = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.result);
         setPrefs(data.result);
         reverseIsDrew(false);
       });
