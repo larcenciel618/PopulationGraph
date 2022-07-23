@@ -1,67 +1,73 @@
 .App {
   height: 100vh;
   width: 100vw;
-  text-align: center;
   /* background-color:darkgreen; */
 }
 
 * {
-	padding: 0px;
-	margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .Title {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100vw;
-	height: 8vmin;
-	background-color: darkslategray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 8vmin;
+  background-color: darkslategray;
+  text-align: center;
 }
 
 .Title > p {
-	font-size: 3vmin;
-	letter-spacing: 2vmin;
-	padding-top: 2vmin;
-	height: 6vh;
-	color: beige;
+  text-align: center;
+  font-size: 3vmin;
+  letter-spacing: 2vmin;
+  padding-top: 2vmin;
+  height: 6vh;
+  color: beige;
 }
 
 .Explain {
-	padding-top: calc(5vh - 30px);
-	padding-bottom: calc(10vh - 60px);
-	padding-right: 3vh;
-	padding-left: 3vh;
-	font-size: calc(1vmin + 1px);
+  text-align: center;
+  padding-top: calc(5vh - 30px);
+  padding-bottom: calc(10vh - 60px);
+  padding-right: 3vh;
+  padding-left: 3vh;
+  font-size: calc(1vmin + 1px);
 }
 
 .GetPrefList {
-	font-size: calc(1vmin + 1px);
-	margin-right: 5vmin;
-	margin-left: 5vmin;
+  /* text-align: center; */
+  /* width: 75vw; */
+  padding: 0 9vw;
+  font-size: calc(1vmin + 1px);
+  /* margin-right: 5vmin; */
+  /* margin-left: calc(18vmax - 80px); */
 }
 
 .PrefboxList {
-	display: inline;
+  display: inline;
 }
 
 .Singleset {
-	width: calc(8vmin + 30px);
-	display: inline-block;
-	padding-right: 1px;
+  width: calc(8vmin + 30px);
+  display: inline-block;
+  padding-right: 1px;
 }
 
 .Singleset > input {
-	width: 3vmin;
+  width: 3vmin;
 }
 
 .Prefname {
-	display: inline-block;
-	padding-left: 0.1vw;
+  display: inline-block;
+  padding-left: 0.1vw;
 }
 
 .GraphArea {
-	margin-right: 5vmin;
-	margin-left: 5vmin;
-	margin-top: calc(20vmin - 70px);
+  padding: 0 10vw;
+  margin-top: calc(20vmin - 70px);
+  /* margin-left: calc(19vmax - 50px); */
+  /* margin: 0 auto; */
 }

@@ -1,29 +1,29 @@
-import React from 'react'
+import React from "react";
 // import { render } from 'react-dom'
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import '../App.css';
-import { listenerCount } from 'process';
+import "../App.css";
+// import { listenerCount } from "process";
 
 interface SeriesType {
-	type: string;
-	name: string;
-	data: number[];
+  type: string;
+  name: string;
+  data: number[];
 }
 
 interface SeriesTypeProps {
-	List: SeriesType[];
+  List: SeriesType[];
 }
 const Graph = (props: SeriesTypeProps) => {
-	//以下のoptionsはレンダリングするグラフの基本設定をしています
-	const copyseries: Highcharts.SeriesOptionsType[] = [];
-	props.List.forEach((list) => {
-		copyseries.push({
-			type: "line",
-			name: list.name,
-			data: [...list.data],
-		})
-	})
+  //以下のoptionsはレンダリングするグラフの基本設定をしています
+  const copyseries: Highcharts.SeriesOptionsType[] = [];
+  props.List.forEach((list) => {
+    copyseries.push({
+      type: "line",
+      name: list.name,
+      data: [...list.data],
+    });
+  });
   const options: Highcharts.Options = {
     title: {
       text: "人口推移",
@@ -67,7 +67,7 @@ const Graph = (props: SeriesTypeProps) => {
     },
     series:
       props.List.length === 0
-    	? [
+        ? [
             {
               type: "line",
               name: "都道府県名",
@@ -96,11 +96,11 @@ const Graph = (props: SeriesTypeProps) => {
         : copyseries,
   };
   console.log("highcharts", props.List);
-	return (
-	 <div className="GraphArea">
-        <HighchartsReact highcharts={Highcharts} options={options}/>
-      </div>
-	);
-}
+  return (
+    <div className="GraphArea">
+      <HighchartsReact highcharts={Highcharts} options={options} />
+    </div>
+  );
+};
 
 export default Graph;
