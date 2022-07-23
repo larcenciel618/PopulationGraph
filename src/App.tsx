@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import Headline from './Headline/Headline';
-import Graph from './Graph/Graph';
+import GetPrefsList from './Graph/GetPrefsList';
 
 function App() {
   return (
     <div className="App">
 		<Headline title="都道府県人口推移グラフ" />
-		<Graph />
+		<GetPrefsList />
     </div>
   );
 }
