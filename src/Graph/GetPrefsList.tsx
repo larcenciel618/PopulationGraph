@@ -1,8 +1,7 @@
-import { chart } from "highcharts";
 import React, { useEffect, useState } from "react";
 import Graph from "./Graph";
 
-interface PrefValue {
+interface PrefsType {
   prefCode: number;
   prefName: string;
 }
@@ -16,9 +15,10 @@ interface SeriesType {
 }
 
 const GetPrefsList = () => {
-  const [Prefs, setPrefs] = useState([]);
+  const [Prefs, setPrefs] = useState<PrefsType[]>([]);
   const [SeriesList, setSeriesList] = useState<SeriesType[]>([]);
-  // const ApiKey: any = process.env.REACT_APP_KEY;
+  //   eslint-disable-next-line
+  const ApiKey: any = process.env.React_APP_API_KEY;
 
   const handleClick = (index: number, prefname: string) => {
     //SeriesList内nameを全て検索し、該当する要素があった場合は、isExistedにtrueをたてる
@@ -36,7 +36,7 @@ const GetPrefsList = () => {
           index,
         {
           headers: {
-            "x-api-key": "5z07nougGOxYPvf26JK69uVftaVNc00AuZPmbnN9",
+            "x-api-key": ApiKey,
           },
         }
       )
@@ -68,7 +68,7 @@ const GetPrefsList = () => {
     //apiで都道府県名と都道府県コードを受け取りstateのPrefsに格納しています
     fetch("https://opendata.resas-portal.go.jp/api/v1/prefectures", {
       headers: {
-        "x-api-key": "5z07nougGOxYPvf26JK69uVftaVNc00AuZPmbnN9",
+        "x-api-key": ApiKey,
       },
     })
       .then((res) => res.json())
@@ -81,7 +81,7 @@ const GetPrefsList = () => {
     <>
       <div className="GetPrefList">
         <div className="Prefboxlist">
-          {Prefs.map((data: PrefValue) => (
+          {Prefs.map((data: PrefsType) => (
             <div className="Singleset" key={data.prefCode}>
               <input
                 type="checkbox"

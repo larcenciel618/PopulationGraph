@@ -16,7 +16,6 @@ interface SeriesTypeProps {
 }
 
 const Graph = (props: SeriesTypeProps) => {
-
   //stateのデータをコピーしたのものをHighcharts.SeriesOptionsType型の変数に入れ直します
   //stateをそのまま下のoptionsに入れるとHighChartsがstateのデータを壊すような挙動を確認したのでこの処理を入れました
   const copyseries: Highcharts.SeriesOptionsType[] = [];
