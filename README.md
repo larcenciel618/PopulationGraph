@@ -48,6 +48,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-
-https://user-images.githubusercontent.com/62476416/180404509-c71596f5-6314-4dbf-8920-ecd4c07968e2.mov
-

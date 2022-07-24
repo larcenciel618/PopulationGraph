@@ -1,6 +1,5 @@
 import { chart } from "highcharts";
 import React, { useEffect, useState } from "react";
-// import { setUncaughtExceptionCaptureCallback } from "process";
 import Graph from "./Graph";
 
 interface PrefValue {
@@ -8,6 +7,8 @@ interface PrefValue {
   prefName: string;
 }
 
+//stateの型をHighcharts.SeriesOptionsTypeにするとdataプロパティが型にが存在しないと言われるので
+//一度自作のオブジェクト型(SeriesType)を挟んでいます。
 interface SeriesType {
   type: string;
   name: string;
@@ -18,16 +19,15 @@ const GetPrefsList = () => {
   const [Prefs, setPrefs] = useState([]);
   const [SeriesList, setSeriesList] = useState<SeriesType[]>([]);
   // const ApiKey: any = process.env.REACT_APP_KEY;
+
   const handleClick = (index: number, prefname: string) => {
     //SeriesList内nameを全て検索し、該当する要素があった場合は、isExistedにtrueをたてる
-    console.log("before", SeriesList);
     let isExisted = false;
     SeriesList.forEach((type: SeriesType) => {
       if (type.name === prefname) {
         isExisted = true;
       }
     });
-    console.log(chart.length);
 
     if (!isExisted) {
       //apiでチェックボックスから受け取ったindex番目の都道府県のデータを取得しています。
@@ -60,10 +60,7 @@ const GetPrefsList = () => {
       const tempSeriesList: SeriesType[] = copySeriesList.filter(
         (series) => series.name !== prefname
       );
-      console.log(tempSeriesList);
       setSeriesList(tempSeriesList);
-      //   setSeriesList(SeriesList.filter((list) => list.name !== prefname));
-      //   console.log(SeriesList);
     }
   };
 
@@ -78,8 +75,7 @@ const GetPrefsList = () => {
       .then((data) => {
         setPrefs(data.result);
       });
-    console.log("after", SeriesList);
-  }, [SeriesList]);
+  }, []);
 
   return (
     <>

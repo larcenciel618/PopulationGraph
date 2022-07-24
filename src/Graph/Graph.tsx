@@ -1,10 +1,10 @@
 import React from "react";
-// import { render } from 'react-dom'
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import "../App.css";
-// import { listenerCount } from "process";
 
+//stateの型をHighcharts.SeriesOptionsTypeにするとdataプロパティが型にが存在しないと言われるので
+//一度自作のオブジェクト型(SeriesType)を挟んでいます。
 interface SeriesType {
   type: string;
   name: string;
@@ -14,8 +14,11 @@ interface SeriesType {
 interface SeriesTypeProps {
   List: SeriesType[];
 }
+
 const Graph = (props: SeriesTypeProps) => {
-  //以下のoptionsはレンダリングするグラフの基本設定をしています
+
+  //stateのデータをコピーしたのものをHighcharts.SeriesOptionsType型の変数に入れ直します
+  //stateをそのまま下のoptionsに入れるとHighChartsがstateのデータを壊すような挙動を確認したのでこの処理を入れました
   const copyseries: Highcharts.SeriesOptionsType[] = [];
   props.List.forEach((list) => {
     copyseries.push({
@@ -24,6 +27,8 @@ const Graph = (props: SeriesTypeProps) => {
       data: [...list.data],
     });
   });
+
+  //以下のoptionsはレンダリングするグラフの基本設定をしています
   const options: Highcharts.Options = {
     title: {
       text: "人口推移",
@@ -95,7 +100,6 @@ const Graph = (props: SeriesTypeProps) => {
           ]
         : copyseries,
   };
-  console.log("highcharts", props.List);
   return (
     <div className="GraphArea">
       <HighchartsReact highcharts={Highcharts} options={options} />
